@@ -18,10 +18,57 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+/* NAVIGATION */
+.navbar {
+    display: flex;
+    justify-content: center; /* Centre les liens */
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Liste des liens */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 2.7rem;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.nav-links a:hover {
+    background: #008394;
+    color: white;
+}
+
+/* Menu responsive (mobile) */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+
 /* Le contenu principal doit prendre toute la place disponible */
 .main-content {
     flex: 1;
 }
+
+
 
 /* Loader full screen */
 #loader {
@@ -84,13 +131,26 @@ body {
     filter: brightness(90%);
 }
 
-.slider-content{
+.slider-content {
     position: absolute;
-    top: 7%;
-    left: 18%;
-    transform: translate(-50%, -50%);
-
+    top: 20px; /* Ajuste la position en haut */
+    left: 30px; /* Décale tout vers la gauche */
+    text-align: left; /* Aligne le texte à gauche */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Garde tout aligné à gauche */
 }
+
+.profile-pic {
+    width: 100px; /* Taille de l’image */
+    height: 100px;
+    border-radius: 50%; /* Rend l’image circulaire */
+    object-fit: cover;
+    border: 3px solid white; /* Bordure blanche */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Ombre légère */
+    margin-bottom: 10px; /* Ajoute un petit espace sous la photo */
+}
+
 
 h1{
     color: #020000;
@@ -214,21 +274,37 @@ p{
     color: black;
     margin-top: 10px;
 }
+/* Style de la barre de progression */
 .progress-bar {
     width: 100%;
-    height: 10px;
+    height: 12px;
     background: #ddd;
-    border-radius: 5px;
+    border-radius: 6px;
     overflow: hidden;
     margin-top: 10px;
+    position: relative;
 }
 
-/* animation de progression */
+/* Barre de progression animée */
 .progress {
     height: 100%;
-    width: 0%; /* Commence vide */
-    background: #007bff;
-    transition: width 2s ease-in-out;
+    width: 0%; /* Débute à 0% */
+    background: linear-gradient(90deg, #007bff, #00c8ff);
+    transition: width 1.5s ease-in-out, background 0.5s ease-in-out;
+    border-radius: 6px;
+}
+
+/* Animation lumineuse pour donner un effet dynamique */
+.progress::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    filter: blur(5px);
+    transition: width 1.5s ease-in-out;
 }
 
 

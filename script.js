@@ -46,3 +46,24 @@ const progressObserver = new IntersectionObserver(animateProgressBar, {threshold
 progressBars.forEach(bar => {
     progressObserver.observe(bar);
 });
+
+const progressBarsBeau = document.querySelector(".progress");
+const animateProgressBarsBeau = (entries, obeserver) => {
+    entry.forEach(entry => {
+        if (entry.isIntersecting){ // Si l'élément est visible
+            const progress = entry.target;// Récupère l'élément en question
+            const percent = progress.getAttribute("data-percent"); // Récupère la valeur du pourcentage
+
+             // Applique le pourcentage à la barre
+            progress.style.width = percent + "%";
+            
+              // Désactive l'observation une fois l'animation déclenchée
+            observer.unobserve(progress);
+        }
+    })
+}
+const progressObserverBeau = new IntersectionObserver(animateProgressBar, { threshold: 0.5 });
+// Appliquer l'observateur à chaque barre de progression
+progressBars.forEach(bar => {
+    progressObserver.observe(bar);
+});

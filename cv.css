@@ -1,0 +1,137 @@
+/*  Ajustement général */
+body {
+    background-image: url(img/ai-generated-8113888_1920.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding-top: 100px; /* Décalage pour ne pas cacher le contenu sous la navbar */
+    min-height: 100vh; /* Prend toute la hauteur de l’écran */
+    display: flex;
+    flex-direction: column;
+}
+
+/*  Conteneur du CV */
+.cv-container {
+    flex: 1; /* Prend toute la hauteur disponible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px; /* Évite le chevauchement du footer */
+}
+
+/*  Style du PDF */
+.cv-wrapper {
+    width: 95%; /* Augmente la largeur */
+    max-width: 1200px; /* Plus grand max */
+    height: 90vh; /* Prend presque toute la hauteur */
+    border: 3px solid #007bff; /* Bordure bleue élégante */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Ombre améliorée */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/*  Iframe (CV) */
+iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/*  Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 0;
+    text-align: center;
+    z-index: 1000;
+}
+
+/*  Liens de navigation */
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.7rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active {
+    background: #007bff;
+    color: white;
+}
+
+h1{
+    color: white;
+    font-size: 4rem;
+}
+
+/*  Footer */
+.footer {
+    position: relative; /* Ne pas le fixer, laisse du scroll */
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+/*  Conteneur des contacts */
+.contacts-container {
+    display: flex;
+    justify-content: center; /* Aligne les éléments horizontalement */
+    gap: 20px;
+    flex-wrap: wrap; /* Permet d’aller à la ligne si l’écran est petit */
+}
+
+/*  Style des éléments de contact */
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/*  Responsiveness : Sur mobile, réajuste la disposition */
+@media (max-width: 768px) {
+    .cv-wrapper {
+        width: 100%; /* Prend toute la largeur */
+        height: 85vh; /* Ajustement hauteur */
+    }
+
+    .contacts-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact {
+        width: 90%;
+        max-width: 250px;
+    }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mon CV de développeur web">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="cv.css">
+    <title>Mon CV</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="cv.html" class="active">Mon CV</a></li>
+        </ul>
+    </nav>
+    
+    <header>
+        <h1>Mon CV</h1>
+        <a href="index.html" class="btn-retour">← Retour à l'accueil</a>
+    </header>
+
+    <!-- Section CV -->
+    <section class="cv-container">
+        <div class="cv-wrapper">
+            <iframe id="cv-frame" src="img/cv_dev_web_2025.pdf" frameborder="0"></iframe>
+        </div>
+
+        <!-- Fallback si le CV ne charge pas -->
+        <div id="fallback" style="display: none;">
+            <p> Impossible d'afficher le CV directement.</p>
+            <a href="img/cv_dev_web_2025.pdf" class="btn-retour" download> Télécharger mon CV</a>
+        </div>
+    </section>
+
+    <!-- Footer avec contacts -->
+    <footer class="footer">
+        <div class="contacts-container">
+            <div class="contact">
+                <span class="material-icons icon">mail</span>
+                <span class="label">E-mail</span>
+                <span class="value">sergeweb52@gmail.com</span>
+            </div>
+
+            <div class="contact">
+                <span class="material-icons icon">call</span>
+                <span class="label">Téléphone</span>
+                <span class="value">0612167308</span>
+            </div>
+
+            <div class="contact">
+                <span class="material-icons icon">share</span>
+                <span class="label">Github</span>
+                <span class="value">
+                    <a href="https://github.com/Milionj">SERGE WEBER</a>
+                </span>
+            </div>
+
+            <div class="contact">
+                <span class="material-icons icon">share</span>
+                <span class="label">Linkedin</span>
+                <span class="value">
+                    <a href="https://www.linkedin.com/in/serge-weber-b414b3232">SERGE WEBER</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cv.js"></script>
+
+</body>
+</html>
