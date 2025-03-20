@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body { /* Assure que la page prend toute la hauteur. */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Le contenu principal doit prendre toute la place disponible */
+.main-content {
+    flex: 1;
+}
+
+/* Loader full screen */
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Spinner animation */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid white;
+    border-top: 5px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* États initial et final de l'animation */
+.hidden {
+    opacity: 0; /* Invisible au départ */
+    transform: translateY(50px); /* Décalage vers le bas */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Animation fluide */
+}
+
+.show {
+    opacity: 1; /* Apparition progressive */
+    transform: translateY(0); /* Revient à sa position normale */
+}
+
+
+
+
+.slider{
+    width: 100%;
+    min-height: 80vh;
+    aspect-ratio: 16/9;
+    background-color: black;
+    position: relative;
+}
+
+.slider-background{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(90%);
+}
+
+.slider-content{
+    position: absolute;
+    top: 7%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+
+}
+
+h1{
+    color: #020000;
+    font-size: 5rem;
+    
+}
+
+h2{
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+
+p{
+    font-size: 1.5rem;
+    line-height: 1.5em;
+}
+
+.slider-content p{
+    color: #020000;
+    font-size: 3rem;
+}
+
+.section{
+    padding: 100px 0;
+}
+
+.boxed{
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.dark{
+    background-image: url(img/web-2592005_1280.jpg);
+}
+
+.w40{
+    width: 40%;
+}
+
+.w60{
+    width: 60%;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.w25{
+    width: 25%;
+}
+
+.w32{
+    width: 32%;
+}
+
+.space-between{
+    justify-content: space-between;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+
+.gap20{
+    gap: 20px;
+}
+
+/* Forcer l'affichage sur une seule ligne */
+.skills-container {
+    display: flex;
+    justify-content: center; /* Centre les éléments horizontalement */
+    flex-wrap: nowrap; /* Empêche le retour à la ligne */
+    gap: 10px; /* Réduit l'espace entre les compétences */
+    max-width: 100%; /* Utilisation de toute la largeur */
+    overflow-x: auto; /* Ajoute un scroll horizontal si nécessaire */
+    padding: 20px 0;
+}
+
+/* Assurer une taille uniforme des cartes */
+.skill {
+    width: 160px; /* Taille adaptée pour tout faire tenir */
+    height: 200px; /* Hauteur uniforme */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Empêche la réduction des éléments */
+}
+
+/* Uniformiser la taille des images */
+.skill img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+/* Adapter pour les écrans plus petits */
+@media (max-width: 992px) {
+    .skills-container {
+        flex-wrap: wrap; /* Permet le retour à la ligne si écran trop petit */
+    }
+    .skill {
+        width: 140px; /* Taille plus petite */
+        height: 180px;
+    }
+}
+
+
+/*  Supprimer la largeur w25 qui casse l'alignement */
+.w25 {
+    width: auto !important;
+}
+/* 🛠 Correction : Forcer l'affichage en ligne des compétences */
+
+.skill h3{
+    color: black;
+    margin-top: 10px;
+}
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+/* animation de progression */
+.progress {
+    height: 100%;
+    width: 0%; /* Commence vide */
+    background: #007bff;
+    transition: width 2s ease-in-out;
+}
+
+
+.realisation{
+    height: auto;
+    aspect-ratio: 2/1;
+    position: relative;
+}
+
+.realisation h3{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    width: max-content;
+    opacity: 0;
+    transition:.4 ease;
+}
+
+.realisation a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.realisation img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(90%);
+    transition: .4s ease;
+}
+
+.realisation:hover img{
+    filter: brightness(50%);
+}
+
+.realisation:hover h3{
+    opacity:1;
+}
+
+/* Footer en bas */
+.footer {
+    background-color: black;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    margin-top: auto; /* Pousse le footer vers le bas */
+}
+
+.contacts-container {
+    display: flex;
+    justify-content: center; /* Alignement horizontal */
+    gap: 30px;
+    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
+}
+
+.contact {
+    display: flex;
+    flex-direction: column; /* Empile les icônes et textes */
+    align-items: center; /* Centre le contenu */
+    justify-content: center;
+    border: 2px dashed white;
+    border-radius: 15px;
+    padding: 15px;
+    width: 180px; /* Taille uniforme */
+    text-align: center;
+}
+
+.contact .icon {
+    font-size: 2rem !important;
+}
+
+.contact .value a {
+    color: white;
+    text-decoration: none;
+}
+
+.contact .value a:hover {
+    text-decoration: underline;
+}
+
+/*  Général : Ajuster les marges et tailles */
+@media (max-width: 1200px) {
+    .boxed {
+        max-width: 90%; /* Réduction du max-width pour mieux s’adapter */
+    }
+    
+    h1 {
+        font-size: 4rem;
+    }
+    
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 1.3rem;
+    }
+}
+
+/*  Tablette (écran max 992px) */
+@media (max-width: 992px) {
+    .flex {
+        flex-direction: column; /* Empiler les éléments */
+    }
+
+    .w40, .w60, .w25, .w32 {
+        width: 100%; /* Utiliser toute la largeur */
+    }
+
+    .skills-container {
+        justify-content: center;
+    }
+
+    .realisation {
+        width: 90%; /* Ajustement des réalisations */
+        margin: auto;
+    }
+
+    .slider-content h1 {
+        font-size: 3rem;
+    }
+
+    .slider-content p {
+        font-size: 2rem;
+    }
+
+    .contact {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .footer {
+        padding: 15px 0;
+    }
+}
+
+/*  Mobile (écran max 768px) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    .slider {
+        min-height: 60vh; /* Réduction de la hauteur du slider */
+    }
+
+    .slider-content {
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .skills-container {
+        flex-direction: column; /* Empiler les skills */
+        align-items: center;
+    }
+
+    .realisation {
+        width: 100%; /* Pleine largeur sur mobile */
+    }
+
+    .footer {
+        text-align: center;
+    }
+
+    .contacts-container {
+        flex-direction: column; /* Empile les contacts */
+        gap: 10px;
+    }
+
+    .contact {
+        width: 100%;
+        max-width: 300px;
+        margin: auto;
+    }
+}
+
+/*  Très petit écran (moins de 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .slider-content p {
+        font-size: 1.5rem;
+    }
+
+    .skill img {
+        width: 80px; /* Réduction de la taille des logos */
+        height: 80px;
+    }
+
+    .contact {
+        padding: 10px;
+    }
+
+    .contact .icon {
+        font-size: 1.5rem !important;
+    }
+}
+
