@@ -4,13 +4,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const navbar = document.querySelector(".navbar");
     let lastScrollTop = 0;
 
-    // 🛠 Vérifie si le PDF charge bien, sinon affiche l'alternative
+    //  Vérifie si le PDF charge bien, sinon affiche l'alternative
     cvFrame.addEventListener("error", function () {
         fallback.style.display = "block";
         cvFrame.style.display = "none";
     });
 
-    // 🛠 Animation de la navbar au scroll
+    //  Animation de la navbar au scroll
     window.addEventListener("scroll", function () {
         let scrollTop = window.scrollY;
         if (scrollTop > lastScrollTop) {
