@@ -21,22 +21,45 @@ body {
 }
 
 /*  Style du PDF */
-.cv-wrapper {
-    width: 95%; /* Augmente la largeur */
-    max-width: 1200px; /* Plus grand max */
-    height: 90vh; /* Prend presque toute la hauteur */
-    border: 3px solid #007bff; /* Bordure bleue élégante */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Ombre améliorée */
+/* Nouvelle image du CV */
+.cv-img {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
     border-radius: 10px;
-    overflow: hidden;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/*  Iframe (CV) */
-iframe {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
+/* Conteneur du CV (inchangé ou à ajuster si besoin) */
+.cv-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 60px;
+    margin-top: 30px;
 }
+
+.download-cv {
+    margin-top: 10px;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.download-cv a {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.download-cv a:hover {
+    text-decoration: underline;
+    color: #339dff;
+}
+
 
 /*  Navbar */
 .navbar {
