@@ -108,6 +108,13 @@ h1{
     font-size: 4rem;
 }
 
+.btn-retour{
+    color: azure; 
+    background-color: #000000;
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+
 /*  Footer */
 .footer {
     position: relative; /* Ne pas le fixer, laisse du scroll */
