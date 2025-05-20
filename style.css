@@ -269,6 +269,18 @@ p{
         width: 140px; /* Taille plus petite */
         height: 180px;
     }
+
+        .slider .profile-pic{
+        display: none;
+    }
+
+       .slider .jesuisdev {
+        display: none;
+    }
+
+       .slider h1{
+        display: none;
+    }
 }
 
 

@@ -115,16 +115,6 @@ h1{
     font-size: 1.2rem;
 }
 
-/*  Footer */
-.footer {
-    position: relative; /* Ne pas le fixer, laisse du scroll */
-    width: 100%;
-    background-color: black;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: auto;
-}
 
 /*  Conteneur des contacts */
 .contacts-container {
@@ -148,12 +138,28 @@ h1{
     font-size: 0.9rem;
 }
 
+    .download-cv{
+          background-color: #000000;
+    }
+
+    /*  Footer */
+.footer {
+    position: relative; /* Ne pas le fixer, laisse du scroll */
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
 /*  Responsiveness : Sur mobile, réajuste la disposition */
 @media (max-width: 768px) {
     .cv-wrapper {
         width: 100%; /* Prend toute la largeur */
         height: 85vh; /* Ajustement hauteur */
     }
+
 
     .contacts-container {
         flex-direction: column;
