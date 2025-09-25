@@ -1,173 +1,133 @@
-/*  Ajustement général */
-body {
-    background-image: url(img/ai-generated-8113888_1920.jpg);
-    background-size: cover;
-    background-position: center;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    padding-top: 100px; /* Décalage pour ne pas cacher le contenu sous la navbar */
-    min-height: 100vh; /* Prend toute la hauteur de l’écran */
-    display: flex;
-    flex-direction: column;
+/* --------------------------------------------------------
+   CV.CSS – Page CV
+   ----------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root{
+  --navbar-h: 70px;
+  --brand: #007bff;
+  --text-invert: #fff;
 }
 
-/*  Conteneur du CV */
-.cv-container {
-    flex: 1; /* Prend toute la hauteur disponible */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 60px; /* Évite le chevauchement du footer */
+*{ box-sizing: border-box; margin: 0; padding: 0; }
+html, body{ height: 100%; }
+
+body{
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  background-image: url(img/ai-generated-8113888_1920.jpg);
+  background-size: cover; background-position: center;
+  padding-top: var(--navbar-h);
 }
 
-/*  Style du PDF */
-/* Nouvelle image du CV */
-.cv-img {
-    width: 100%;
-    max-width: 1000px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+/* Navbar (même comportement que l’accueil) */
+.navbar{
+  position: fixed; top: 0; left: 0; width: 100%;
+  height: var(--navbar-h);
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,.8);
+  z-index: 1000; transition: top .25s ease;
 }
-
-/* Conteneur du CV (inchangé ou à ajuster si besoin) */
-.cv-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 30px;
-    padding-bottom: 60px;
-    margin-top: 30px;
+.navbar ul{ list-style: none; display: flex; gap: 30px; }
+.navbar a{
+  color: var(--text-invert); text-decoration: none; font-weight: 700;
+  padding: 10px 20px; border-radius: 8px; font-size: 1.1rem;
 }
+.navbar a:hover, .navbar a.active{ background: var(--brand); color: #fff; }
 
-.download-cv {
-    margin-top: 10px;
-    color: white;
-    font-size: 1.1rem;
+/* En-tête */
+.cv-header{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: .5rem; padding: 24px 16px 0;
 }
-
-.download-cv a {
-    color: #007bff;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.download-cv a:hover {
-    text-decoration: underline;
-    color: #339dff;
-}
-
-
-/*  Navbar */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 15px 0;
-    text-align: center;
-    z-index: 1000;
-}
-
-/*  Liens de navigation */
-.navbar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.navbar ul li {
-    display: inline;
-}
-
-.navbar ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.7rem;
-    font-weight: bold;
-    transition: color 0.3s ease;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-
-.navbar ul li a:hover,
-.navbar ul li a.active {
-    background: #007bff;
-    color: white;
-}
-
-h1{
-    color: white;
-    font-size: 4rem;
-}
-
+.cv-header h1{ color: #fff; font-size: 2.2rem; }
 .btn-retour{
-    color: azure; 
-    background-color: #000000;
-    font-weight: bolder;
-    font-size: 1.2rem;
+  color: #fff; background: #000; text-decoration: none; font-weight: 700;
+  padding: 10px 14px; border-radius: 8px;
 }
 
+/* Contenu */
+.cv-container{
+  flex: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 20px;
+  padding: 20px 16px 60px;
+}
 
-/*  Conteneur des contacts */
+/* Carte blanche autour du PDF */
+.cv-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Le PDF prend toute la largeur et sa hauteur naturelle → scroll sur la page */
+#cv-embed {
+  width: 100%;
+  min-height: 100vh;   /* au moins une hauteur d’écran */
+  border: none;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 30px 10px;
+  margin-top: 40px;
+}
+
 .contacts-container {
-    display: flex;
-    justify-content: center; /* Aligne les éléments horizontalement */
-    gap: 20px;
-    flex-wrap: wrap; /* Permet d’aller à la ligne si l’écran est petit */
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-/*  Style des éléments de contact */
 .contact {
-    display: flex;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 15px 20px;
+  min-width: 160px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact .icon {
+  font-size: 24px;
+  color: #fff;
+}
+
+.contact .value {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact .value:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contacts-container {
     flex-direction: column;
     align-items: center;
+  }
+  .contact {
+    width: 90%;
     justify-content: center;
-    border: 2px dashed white;
-    border-radius: 10px;
-    padding: 10px;
-    width: 150px;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-    .download-cv{
-          background-color: #000000;
-    }
-
-    /*  Footer */
-.footer {
-    position: relative; /* Ne pas le fixer, laisse du scroll */
-    width: 100%;
-    background-color: black;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: auto;
-}
-
-/*  Responsiveness : Sur mobile, réajuste la disposition */
-@media (max-width: 768px) {
-    .cv-wrapper {
-        width: 100%; /* Prend toute la largeur */
-        height: 85vh; /* Ajustement hauteur */
-    }
-
-
-    .contacts-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .contact {
-        width: 90%;
-        max-width: 250px;
-    }
+  }
 }

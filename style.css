@@ -1,547 +1,214 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* --------------------------------------------------------
+   STYLE.GLOBALE – Accueil / Portfolio
+   ----------------------------------------------------- */
 
-*{
-    margin: 0;
-    padding: 0;
+/* 1) Typo & variables */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root{
+  --bg: #000;
+  --text: #111;
+  --text-invert: #fff;
+  --brand: #007bff;
+  --brand-2: #00c8ff;
+  --muted: #e5e7eb;
+  --card: #ffffff;
+  --shadow: 0 4px 12px rgba(0,0,0,.15);
+  --radius: 15px;
+  --navbar-h: 70px;
 }
 
-html, body { /* Assure que la page prend toute la hauteur. */
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+*{ box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body{ height: 100%; }
+
+body{
+  font-family: 'Montserrat', sans-serif;
+  display: flex; flex-direction: column;
+  color: var(--text);
+  background: #fff;
 }
 
-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
+/* 2) Navbar sticky (compatible JS hide/show) */
+.navbar{
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,.8);
+  backdrop-filter: saturate(1.1);
+  height: var(--navbar-h);
+  display: flex; align-items: center; justify-content: center;
+  transition: top .25s ease;
 }
 
-/* NAVIGATION */
-.navbar {
-    display: flex;
-    justify-content: center; /* Centre les liens */
-    padding: 15px 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+.nav-links{ list-style: none; display: flex; gap: 20px; }
+.nav-links a{
+  color: var(--text-invert); text-decoration: none;
+  font-weight: 700; font-size: 1.1rem;
+  padding: 10px 16px; border-radius: 8px;
 }
+.nav-links a:hover{ background: var(--brand); color: #fff; }
 
-/* Liste des liens */
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
+/* 3) Contenu principal */
+.main-content{ flex: 1; padding-top: var(--navbar-h); }
+
+/* 4) Loader */
+#loader{
+  position: fixed; inset: 0; background: #000;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1100; transition: opacity .3s ease;
 }
-
-.nav-links li {
-    margin: 0 15px;
+.spinner{
+  width: 50px; height: 50px;
+  border: 5px solid #fff; border-top-color: var(--brand);
+  border-radius: 50%; animation: spin 1s linear infinite;
 }
+@keyframes spin{ to{ transform: rotate(360deg); } }
 
-.nav-links a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    font-size: 2.7rem;
-    font-weight: bold;
-    padding: 10px 15px;
+/* 5) Révélations au scroll */
+.section.hidden{ opacity: 0; transform: translateY(24px); }
+.section.show{ opacity: 1; transform: none; transition: opacity .5s ease, transform .5s ease; }
+
+/* 6) Hero / slider */
+.slider{ 
+  width: 100%; 
+  min-height: 80vh; 
+  position: relative; 
+  background: #000; 
 }
-
-.nav-links a:hover {
-    background: #008394;
-    color: white;
-}
-
-/* Menu responsive (mobile) */
-@media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-}
-
-
-/* Le contenu principal doit prendre toute la place disponible */
-.main-content {
-    flex: 1;
-}
-
-
-
-/* Loader full screen */
-#loader {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-/* Spinner animation */
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid white;
-    border-top: 5px solid #007bff;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* États initial et final de l'animation */
-.hidden {
-    opacity: 0; /* Invisible au départ */
-    transform: translateY(50px); /* Décalage vers le bas */
-    transition: opacity 1s ease-out, transform 1s ease-out; /* Animation fluide */
-}
-
-.show {
-    opacity: 1; /* Apparition progressive */
-    transform: translateY(0); /* Revient à sa position normale */
-}
-
-
-
-
-.slider{
-    width: 100%;
-    min-height: 80vh;
-    aspect-ratio: 16/9;
-    background-color: black;
-    position: relative;
-}
-
 .slider-background{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(90%);
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; filter: brightness(90%);
+}
+.slider-content{
+  position: relative; 
+  z-index: 1; 
+  padding: 40px 30px;
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-start; 
+  text-align: left;
+}
+.profile-pic{
+  width: 110px; height: 110px; border-radius: 50%; object-fit: cover;
+  border: 3px solid #fff; box-shadow: var(--shadow); margin-bottom: 12px;
 }
 
-.slider-content {
-    position: absolute;
-    top: 20px; /* Ajuste la position en haut */
-    left: 30px; /* Décale tout vers la gauche */
-    text-align: left; /* Aligne le texte à gauche */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Garde tout aligné à gauche */
+/* Hero title + sous-titre en noir */
+#hero-title {
+  font-size: 2.2rem;
+  color: #111;   /* Noir */
+  line-height: 1.2;
 }
-
-.profile-pic {
-    width: 100px; /* Taille de l’image */
-    height: 100px;
-    border-radius: 50%; /* Rend l’image circulaire */
-    object-fit: cover;
-    border: 3px solid white; /* Bordure blanche */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Ombre légère */
-    margin-bottom: 10px; /* Ajoute un petit espace sous la photo */
-}
-
-
-h1{
-    color: #020000;
-    font-size: 1rem;
-    
-}
-
 .slider-content .jesuisdev {
-    font-size: 1.7rem;
-    color: #333;
-    font-weight: 400;
-    margin-top: 5px;
+  font-size: 1.3rem;
+  color: #111;   /* Noir */
+  font-weight: 600;
+  margin-top: 6px;
 }
 
+/* 7) Sections */
+.section{ padding: 80px 0; }
+.boxed{ max-width: 1200px; margin-inline: auto; padding-inline: 16px; }
+.flex{ display: flex; gap: 20px; }
+.wrap{ flex-wrap: wrap; }
+.space-between{ justify-content: space-between; }
+.text-center{ text-align: center; }
+.w40{ width: 40%; } .w60{ width: 60%; } .w32{ width: 32%; }
 
-h2{
-    font-size: 3rem;
-    margin-bottom: 50px;
+.dark{ background-image: url(img/web-2592005_1280.jpg); background-size: cover; background-position: center; }
+
+/* 8) Typo */
+h1{ font-size: 2.2rem; }
+h2{ font-size: 2rem; margin-bottom: 30px; }
+h3{ font-size: 1.1rem; }
+p{ font-size: 1rem; line-height: 1.6; }
+
+/* 9) Compétences */
+.skills-container{ display: flex; gap: 12px; padding: 20px 0; overflow-x: auto; scrollbar-width: thin; }
+.skill{
+  width: 160px; height: 200px; flex: 0 0 auto;
+  background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 16px; text-align: center;
+}
+.skill img{ width: 70px; height: 70px; object-fit: contain; }
+.skill h3{ color: #000; margin-top: 10px; }
+.progress-bar{ width: 100%; height: 12px; background: #ddd; border-radius: 9999px; overflow: hidden; margin-top: 10px; position: relative; }
+.progress{
+  width: 0%; height: 100%; background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  transition: width 1.2s ease-in-out;
 }
 
-p{
-    font-size: 1.5rem;
-    line-height: 1.5em;
-}
-
-.slider-content p{
-    color: #020000;
-    font-size: 3rem;
-}
-
-.section{
-    padding: 100px 0;
-}
-
-.boxed{
-    max-width: 1200px;
-    margin-inline: auto;
-}
-
-.dark{
-    background-image: url(img/web-2592005_1280.jpg);
-}
-
-.w40{
-    width: 40%;
-}
-
-.w60{
-    width: 60%;
-}
-
-.text-center{
-    text-align: center;
-}
-
-.w25{
-    width: 25%;
-}
-
-.w32{
-    width: 32%;
-}
-
-.space-between{
-    justify-content: space-between;
-}
-
-.wrap{
-    flex-wrap: wrap;
-}
-
-.gap20{
-    gap: 20px;
-}
-
-/* Forcer l'affichage sur une seule ligne */
-.skills-container {
-    display: flex;
-    justify-content: center; /* Centre les éléments horizontalement */
-    flex-wrap: nowrap; /* Empêche le retour à la ligne */
-    gap: 10px; /* Réduit l'espace entre les compétences */
-    max-width: 100%; /* Utilisation de toute la largeur */
-    overflow-x: auto; /* Ajoute un scroll horizontal si nécessaire */
-    padding: 20px 0;
-}
-
-/* Assurer une taille uniforme des cartes */
-.skill {
-    width: 160px; /* Taille adaptée pour tout faire tenir */
-    height: 200px; /* Hauteur uniforme */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    flex-shrink: 0; /* Empêche la réduction des éléments */
-}
-
-/* Uniformiser la taille des images */
-.skill img {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-}
-
-/* Adapter pour les écrans plus petits */
-@media (max-width: 992px) {
-    .skills-container {
-        flex-wrap: wrap; /* Permet le retour à la ligne si écran trop petit */
-    }
-    .skill {
-        width: 140px; /* Taille plus petite */
-        height: 180px;
-    }
-
-        .slider .profile-pic{
-        display: none;
-    }
-
-       .slider .jesuisdev {
-        display: none;
-    }
-
-       .slider h1{
-        display: none;
-    }
-}
-
-
-/*  Supprimer la largeur w25 qui casse l'alignement */
-.w25 {
-    width: auto !important;
-}
-/* 🛠 Correction : Forcer l'affichage en ligne des compétences */
-
-.skill h3{
-    color: black;
-    margin-top: 10px;
-}
-/* Style de la barre de progression */
-.progress-bar {
-    width: 100%;
-    height: 12px;
-    background: #ddd;
-    border-radius: 6px;
-    overflow: hidden;
-    margin-top: 10px;
-    position: relative;
-}
-
-/* Barre de progression animée */
-.progress {
-    height: 100%;
-    width: 0%; /* Débute à 0% */
-    background: linear-gradient(90deg, #007bff, #00c8ff);
-    transition: width 1.5s ease-in-out, background 0.5s ease-in-out;
-    border-radius: 6px;
-}
-
-/* Animation lumineuse pour donner un effet dynamique */
-.progress::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.3);
-    filter: blur(5px);
-    transition: width 1.5s ease-in-out;
-}
-
-
-.realisation{
-    height: auto;
-    aspect-ratio: 2/1;
-    position: relative;
-}
-
+/* 10) Réalisations */
+.realisation{ position: relative; aspect-ratio: 2 / 1; height: auto; }
+.realisation a{ display: block; width: 100%; height: 100%; color: #fff; text-decoration: none; }
+.realisation img{ width: 100%; height: 100%; object-fit: cover; filter: brightness(90%); transition: .35s ease; }
 .realisation h3{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
-    width: max-content;
-    opacity: 0;
-    transition:.4 ease;
+  position: absolute; inset: 0; margin: auto; width: max-content; height: max-content;
+  font-size: 1.5rem; opacity: 0; transition: .35s ease;
 }
+.realisation:hover img{ filter: brightness(50%); }
+.realisation:hover h3{ opacity: 1; }
 
-.realisation a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-}
-
-.realisation img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(90%);
-    transition: .4s ease;
-}
-
-.realisation:hover img{
-    filter: brightness(50%);
-}
-
-.realisation:hover h3{
-    opacity:1;
-}
-
-/* Footer en bas */
+/* 11) Footer (style CV appliqué partout) */
 .footer {
-    background-color: black;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    width: 100%;
-    margin-top: auto; /* Pousse le footer vers le bas */
+  width: 100%;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 30px 10px;
+  margin-top: 40px;
 }
-
 .contacts-container {
-    display: flex;
-    justify-content: center; /* Alignement horizontal */
-    gap: 30px;
-    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
-
 .contact {
-    display: flex;
-    flex-direction: column; /* Empile les icônes et textes */
-    align-items: center; /* Centre le contenu */
-    justify-content: center;
-    border: 2px dashed white;
-    border-radius: 15px;
-    padding: 15px;
-    width: 180px; /* Taille uniforme */
-    text-align: center;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 15px 20px;
+  min-width: 160px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-
 .contact .icon {
-    font-size: 2rem !important;
+  font-size: 24px;
+  color: #fff;
 }
-
+.contact .value,
 .contact .value a {
-    color: white;
-    text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
 }
-
 .contact .value a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-/*  Général : Ajuster les marges et tailles */
-@media (max-width: 1200px) {
-    .boxed {
-        max-width: 90%; /* Réduction du max-width pour mieux s’adapter */
-    }
-    
-    h1 {
-        font-size: 4rem;
-    }
-    
-    h2 {
-        font-size: 2.5rem;
-    }
+/* 12) Accessibilité & motion */
+a:focus-visible, button:focus-visible{ outline: 3px solid #9A00FF; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce){ *,*::before,*::after{ animation: none !important; transition: none !important; } }
 
-    p {
-        font-size: 1.3rem;
-    }
+/* 13) Responsif */
+@media (max-width: 1200px){ .boxed{ max-width: 92%; } }
+@media (max-width: 992px){
+  .flex{ flex-direction: column; }
+  .w40,.w60,.w32{ width: 100%; }
+  .realisation{ width: 90%; margin: 0 auto; }
+  #hero-title{ font-size: 1.8rem; }
+  .slider-content .jesuisdev{ font-size: 1.1rem; }
 }
-
-/*  Tablette (écran max 992px) */
-@media (max-width: 992px) {
-    .flex {
-        flex-direction: column; /* Empiler les éléments */
-    }
-
-    .w40, .w60, .w25, .w32 {
-        width: 100%; /* Utiliser toute la largeur */
-    }
-
-    .skills-container {
-        justify-content: center;
-    }
-
-    .realisation {
-        width: 90%; /* Ajustement des réalisations */
-        margin: auto;
-    }
-
-    .slider-content h1 {
-        font-size: 3rem;
-    }
-
-    .slider-content p {
-        font-size: 2rem;
-    }
-
-    .contact {
-        width: 90%;
-        margin: 10px auto;
-    }
-
-    .footer {
-        padding: 15px 0;
-    }
+@media (max-width: 768px){
+  .slider{ min-height: 60vh; }
+  .slider-content{ align-items: center; text-align: center; }
+  .profile-pic{ display: none; }
+  #hero-title{ font-size: 1.6rem; }
+  .skills-container{ flex-direction: column; align-items: center; }
+  .realisation{ width: 100%; }
 }
-
-/*  Mobile (écran max 768px) */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.8rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    p {
-        font-size: 1.2rem;
-    }
-
-    .slider {
-        min-height: 60vh; /* Réduction de la hauteur du slider */
-    }
-
-    .slider-content {
-        top: 10%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
-
-    .skills-container {
-        flex-direction: column; /* Empiler les skills */
-        align-items: center;
-    }
-
-    .realisation {
-        width: 100%; /* Pleine largeur sur mobile */
-    }
-
-    .footer {
-        text-align: center;
-    }
-
-    .contacts-container {
-        flex-direction: column; /* Empile les contacts */
-        gap: 10px;
-    }
-
-    .contact {
-        width: 100%;
-        max-width: 300px;
-        margin: auto;
-    }
+@media (max-width: 480px){
+  .contact{ width: 100%; max-width: 300px; margin: 0 auto; }
 }
-
-/*  Très petit écran (moins de 480px) */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2.2rem;
-    }
-
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    .slider-content p {
-        font-size: 1.5rem;
-    }
-
-    .skill img {
-        width: 80px; /* Réduction de la taille des logos */
-        height: 80px;
-    }
-
-    .contact {
-        padding: 10px;
-    }
-
-    .contact .icon {
-        font-size: 1.5rem !important;
-    }
-}
-

@@ -1,179 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content=" Ceci est mon Portfolio de developpeur web">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <title>Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ceci est mon portfolio de développeur web." />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Portfolio — Serge Weber</title>
 </head>
 <body>
-    
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="cv.html">Mon CV</a></li>
-        </ul>
-    </nav>
-    
-    
-    <div id="loader">
-        <div class="spinner"></div>
+  <nav class="navbar" aria-label="Navigation principale">
+    <ul class="nav-links">
+      <li><a href="cv.html">Mon CV</a></li>
+    </ul>
+  </nav>
+
+  <div id="loader" aria-hidden="true">
+    <div class="spinner" aria-label="Chargement…"></div>
+  </div>
+
+  <main class="main-content">
+    <section class="slider" aria-labelledby="hero-title">
+      <img src="img/iot-7850195_1920.jpg" class="slider-background" alt="" aria-hidden="true" loading="lazy" />
+      <div class="slider-content">
+        <img src="img/1279 (2).png" alt="Photo de Serge Weber" class="profile-pic" loading="lazy" />
+        <h1 id="hero-title">Serge WEBER</h1>
+        <p class="jesuisdev"><strong>Développeur web & web mobile</strong></p>
+      </div>
+    </section>
+
+    <section class="section hidden" aria-labelledby="about-title">
+      <div class="boxed">
+        <div class="flex">
+          <div class="w40">
+            <h2 id="about-title">À propos de moi</h2>
+          </div>
+          <div class="w60">
+            <p>Je suis <strong>Serge Weber</strong>, développeur web passionné (HTML, CSS, JavaScript, React, Symfony).</p>
+            <p>Ancien militaire, j’applique rigueur et discipline pour créer des sites modernes et performants.</p>
+            <p>Mon objectif : concevoir des expériences web uniques et efficaces.</p>
+            <p>Besoin d’un site moderne ? <a href="cv.html"><strong>Contactez-moi</strong></a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark hidden" aria-labelledby="skills-title">
+      <div class="boxed text-center">
+        <h2 id="skills-title">Mes compétences</h2>
+
+        <div class="skills-container" role="list">
+          <article class="skill" role="listitem">
+            <img src="img/logoHtml.webp" alt="Logo HTML" loading="lazy" />
+            <h3>HTML</h3>
+            <div class="progress-bar" aria-label="Niveau HTML 90%">
+              <div class="progress" data-percent="90"></div>
+            </div>
+          </article>
+
+          <article class="skill" role="listitem">
+            <img src="img/logo-CSS.webp" alt="Logo CSS" loading="lazy" />
+            <h3>CSS</h3>
+            <div class="progress-bar" aria-label="Niveau CSS 85%">
+              <div class="progress" data-percent="85"></div>
+            </div>
+          </article>
+
+          <article class="skill" role="listitem">
+            <img src="img/logo-js.jpg" alt="Logo JavaScript" loading="lazy" />
+            <h3>JavaScript</h3>
+            <div class="progress-bar" aria-label="Niveau JavaScript 80%">
+              <div class="progress" data-percent="80"></div>
+            </div>
+          </article>
+
+          <article class="skill" role="listitem">
+            <img src="img/iconeRact.png" alt="Logo React" loading="lazy" />
+            <h3>React</h3>
+            <div class="progress-bar" aria-label="Niveau React 75%">
+              <div class="progress" data-percent="75"></div>
+            </div>
+          </article>
+
+          <article class="skill" role="listitem">
+            <img src="img/docker.png" alt="Logo Docker" loading="lazy" />
+            <h3>Docker</h3>
+            <div class="progress-bar" aria-label="Niveau Docker 70%">
+              <div class="progress" data-percent="70"></div>
+            </div>
+          </article>
+
+          <article class="skill" role="listitem">
+            <img src="img/icons8-symfony-480.png" alt="Logo Symfony" loading="lazy" />
+            <h3>Symfony</h3>
+            <div class="progress-bar" aria-label="Niveau Symfony 65%">
+              <div class="progress" data-percent="65"></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hidden" aria-labelledby="work-title">
+      <div class="boxed text-center">
+        <h2 id="work-title">Mes réalisations</h2>
+
+        <div class="flex wrap gap20 space-between skills-container">
+          <article class="w32 realisation">
+            <a href="https://tourmaline-lily-3424bf.netlify.app/" target="_blank" rel="noopener noreferrer">
+              <img src="img/fableBackground.jpg" alt="Vitrine e-commerce" loading="lazy" />
+              <h3>Vitrine e-commerce</h3>
+            </a>
+          </article>
+
+          <article class="w32 realisation">
+            <a href="https://strong-llama-9db536.netlify.app/" target="_blank" rel="noopener noreferrer">
+              <img src="img/boy-5699320_1920.jpg" alt="Site de jeux vidéo" loading="lazy" />
+              <h3>Site de jeux vidéo</h3>
+            </a>
+          </article>
+
+          <article class="w32 realisation">
+            <a href="https://montre-de-luxe-ys.netlify.app/" target="_blank" rel="noopener noreferrer">
+              <img src="img/rolex-watches444.gif" alt="Site e-commerce JavaScript" loading="lazy" />
+              <h3>Site e-commerce JS</h3>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<footer class="footer" aria-label="Pied de page">
+  <div class="contacts-container">
+    <div class="contact">
+      <span class="material-icons icon" aria-hidden="true">mail</span>
+      <a class="value" href="mailto:sergeweb52@gmail.com">sergeweb52@gmail.com</a>
     </div>
-    
-    <div class="main-content">
-        <div class="slider">
-            <img src="img/iot-7850195_1920.jpg" class="slider-background" alt="arrière plan">
-            <div class="slider-content">
-                <img src="img/1279 (2).png" alt="Serge WEBER" class="profile-pic">
-                <h1 class="">Serge WEBER</h1>
-                <p class="jesuisdev"><strong>Je suis développeur web & web mobile</strong></p>
-            </div>
-            
-        </div>
-
-        <div class="section hidden">
-            <div class="boxed">
-                <div class="flex">
-                    <div class="w40">
-                        <h2>À propos de moi</h2>
-                    </div>
-                    <div class="w60">
-                        <p>Je suis <strong>Serge Weber</strong>, développeur web passionné, spécialisé en HTML, CSS, JavaScript, React et Symfony.</p>
-                        <p>Ancien militaire, j’ai acquis rigueur et discipline, que j’applique dans mon travail pour créer des sites performants et modernes.</p>
-                        <p>Mon objectif ? Concevoir des expériences web uniques et efficaces.</p>
-                        <p>Besoin d’un site moderne ? <a href="cv.html"> <strong>Contactez-moi !</strong></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="section dark hidden">
-            <div class="boxed text-center">
-                <h2>Découvrez mes compétences</h2>
-                <div class="skills-container">
-                
-                    <div class="skill">
-                        <img src="img/logoHtml.webp">
-                        <h3>HTML</h3>
-                        <div class="progress-bar">
-                            <div class="progress" data-percent="90"></div>
-                        </div>
-                    </div>
-        
-                    <div class="skill">
-                        <img src="img/logo-CSS.webp">
-                        <h3>CSS</h3>
-                        <div class="progress-bar">
-                            <div class="progress" data-percent="85"></div>
-                        </div>
-                    </div>
-        
-                    <div class="skill">
-                        <img src="img/logo-js.jpg">
-                        <h3>JAVASCRIPT</h3>
-                        <div class="progress-bar">
-                            <div class="progress" data-percent="80"></div>
-                        </div>
-                    </div>
-        
-                    <div class="skill">
-                        <img src="img/iconeRact.png">
-                        <h3>REACT JS</h3>
-                        <div class="progress-bar">
-                            <div class="progress" data-percent="75"></div>
-                        </div>
-                    </div>
-        
-                    <div class="skill">
-                        <img src="img/docker.png">
-                        <h3>DOCKER</h3>
-                        <div class="progress-bar">
-                            <div class="progress" data-percent="70"></div>
-                        </div>
-                    </div>
-        
-                    <div class="skill">
-                        <img src="img/icons8-symfony-480.png">
-                        <h3>SYMFONY</h3>
-                        <div class="progress-bar">
-                            <div class="progress" data-percent="65"></div>
-                        </div>
-                    </div>
-        
-                </div>
-            </div>
-        </div>
-        
-
-<div class="section hidden">
-    <div class="boxed text-center">
-        <H2>Mes réalisations</H2>
-        <div class="flex wrap gap20 space-between">
-            <div class="skills-container"> <!-- Nouveau conteneur -->
-            <div class="w32 realisation">
-                <a href="https://tourmaline-lily-3424bf.netlify.app/">
-                    <img src="img/fableBackground.jpg">
-                    <h3>Vitrine e-commerce</h3>
-                </a>
-            </div>
-
-            <div class="w32 realisation">
-                <a href="https://strong-llama-9db536.netlify.app/">
-                    <img src="img/boy-5699320_1920.jpg">
-                    <h3>Site de jeux video</h3>
-                </a>
-            </div>
-
-            <div class="w32 realisation">
-                <a href="https://montre-de-luxe-ys.netlify.app/">
-                    <img src="img/rolex-watches444.gif">
-                    <h3>Site e-commerce JS</h3>
-                </a>
-            </div>
-
-        </div>
+    <div class="contact">
+      <span class="material-icons icon" aria-hidden="true">call</span>
+      <a class="value" href="tel:+33612167308">06&nbsp;12&nbsp;16&nbsp;73&nbsp;08</a>
     </div>
-</div>
-</div>
-
-<footer class="footer">
-    <div class="contacts-container">
-        <div class="contact">
-            <span class="material-icons icon">mail</span>
-            <span class="label">E-mail</span>
-            <span class="value">sergeweb52@gmail.com</span>
-        </div>
-
-        <div class="contact">
-            <span class="material-icons icon">call</span>
-            <span class="label">Téléphone</span>
-            <span class="value">0612167308</span>
-        </div>
-
-        <div class="contact">
-            <span class="material-icons icon">share</span>
-            <span class="label">Github</span>
-            <span class="value">
-                <a href="https://github.com/Milionj">SERGE WEBER</a>
-            </span>
-        </div>
-
-        <div class="contact">
-            <span class="material-icons icon">share</span>
-            <span class="label">Linkedin</span>
-            <span class="value">
-                <a href="https://www.linkedin.com/in/serge-weber-b414b3232">SERGE WEBER</a>
-            </span>
-        </div>
+    <div class="contact">
+      <span class="material-icons icon" aria-hidden="true">share</span>
+      <a class="value" href="https://github.com/Milionj" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
+    <div class="contact">
+      <span class="material-icons icon" aria-hidden="true">share</span>
+      <a class="value" href="https://www.linkedin.com/in/serge-weber-b414b3232" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </div>
 </footer>
 
 
 
-
-    <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
