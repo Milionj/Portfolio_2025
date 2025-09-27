@@ -19,7 +19,6 @@
 }
 
 *{ box-sizing: border-box; margin: 0; padding: 0; }
-
 html, body{ height: 100%; }
 
 body{
@@ -29,7 +28,7 @@ body{
   background: #fff;
 }
 
-/* 2) Navbar sticky (compatible JS hide/show) */
+/* 2) Navbar sticky */
 .navbar{
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 1000;
@@ -39,7 +38,6 @@ body{
   display: flex; align-items: center; justify-content: center;
   transition: top .25s ease;
 }
-
 .nav-links{ list-style: none; display: flex; gap: 20px; }
 .nav-links a{
   color: var(--text-invert); text-decoration: none;
@@ -69,61 +67,71 @@ body{
 .section.show{ opacity: 1; transform: none; transition: opacity .5s ease, transform .5s ease; }
 
 /* 6) Hero / slider */
-.slider{ 
-  width: 100%; 
-  min-height: 80vh; 
-  position: relative; 
-  background: #000; 
-}
+.slider{ width: 100%; min-height: 80vh; position: relative; background: #000; overflow: hidden; }
 .slider-background{
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; filter: brightness(90%);
 }
+/* Shine animé par GSAP */
+.hero__shine{
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, rgba(255, 174, 0, 1) 0%, rgba(255, 255, 255, 0) 48%, rgba(0, 140, 255, 1) 100%);
+  mix-blend-mode: screen;
+  opacity: 0;         /* GSAP l’active si animations autorisées */
+  transform: translateX(-120vw);
+}
 .slider-content{
-  position: relative; 
-  z-index: 1; 
-  padding: 40px 30px;
-  display: flex; 
-  flex-direction: column; 
-  align-items: flex-start; 
-  text-align: left;
+  position: relative; z-index: 1; padding: 40px 30px;
+  display: flex; flex-direction: column; align-items: flex-start; text-align: left;
 }
 .profile-pic{
   width: 110px; height: 110px; border-radius: 50%; object-fit: cover;
   border: 3px solid #fff; box-shadow: var(--shadow); margin-bottom: 12px;
 }
 
-/* Hero title + sous-titre en noir */
-#hero-title {
-  font-size: 2.2rem;
-  color: #111;   /* Noir */
-  line-height: 1.2;
-}
-
-/* Visibilité du titre & sous-titre sur tout fond */
+/* Pastilles de lisibilité sur tout fond */
 #hero-title,
-.slider-content .jesuisdev {
+.slider-content .jesuisdev{
   display: inline-block;
-  color: #111;                    /* texte noir */
-  background: rgba(255,255,255,.88); /* pastille blanche semi-transparente */
+  color: #111;                            /* texte noir */
+  background: rgba(255,255,255,.88);      /* pastille blanche */
   padding: 10px 14px;
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(0,0,0,.25);
   backdrop-filter: blur(6px) saturate(120%);
   -webkit-backdrop-filter: blur(6px) saturate(120%);
 }
+#hero-title{ font-size: 2.2rem; line-height: 1.2; margin-bottom: 8px; }
+.slider-content .jesuisdev{ font-size: 1.3rem; font-weight: 600; margin-top: 6px; }
 
-/* Espacement entre les deux pastilles */
-#hero-title { margin-bottom: 8px; }
-
-.slider-content .jesuisdev {
-  font-size: 1.3rem;
-  color: #111;   /* Noir */
-  font-weight: 600;
-  margin-top: 6px;
+/* 7) Bouton CV très “cliquable” */
+.btn-cv{
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 10px; margin-top: 18px;
+  padding: 14px 22px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #007bff, #00c8ff);
+  box-shadow: 0 10px 24px rgba(0,123,255,.35);
+  transform: translateZ(0);
+  overflow: hidden;
 }
+.btn-cv__glow{
+  position: absolute; inset: -40%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 50%);
+  opacity: .65; filter: blur(12px);
+  transition: transform .35s ease, opacity .35s ease;
+}
+.btn-cv__label{ position: relative; z-index: 1; }
+.btn-cv:hover, .btn-cv:focus-visible{ transform: translateY(-2px); box-shadow: 0 14px 28px rgba(0,123,255,.45); }
+.btn-cv:hover .btn-cv__glow{ transform: translate(10%, -8%); opacity: .9; }
+.btn-cv:active{ transform: translateY(0); }
 
-/* 7) Sections */
+/* 8) Sections */
 .section{ padding: 80px 0; }
 .boxed{ max-width: 1200px; margin-inline: auto; padding-inline: 16px; }
 .flex{ display: flex; gap: 20px; }
@@ -134,13 +142,13 @@ body{
 
 .dark{ background-image: url(img/web-2592005_1280.jpg); background-size: cover; background-position: center; }
 
-/* 8) Typo */
+/* 9) Typo */
 h1{ font-size: 2.2rem; }
 h2{ font-size: 2rem; margin-bottom: 30px; }
 h3{ font-size: 1.1rem; }
 p{ font-size: 1rem; line-height: 1.6; }
 
-/* 9) Compétences */
+/* 10) Compétences */
 .skills-container{ display: flex; gap: 12px; padding: 20px 0; overflow-x: auto; scrollbar-width: thin; }
 .skill{
   width: 160px; height: 200px; flex: 0 0 auto;
@@ -156,7 +164,7 @@ p{ font-size: 1rem; line-height: 1.6; }
   transition: width 1.2s ease-in-out;
 }
 
-/* 10) Réalisations */
+/* 11) Réalisations */
 .realisation{ position: relative; aspect-ratio: 2 / 1; height: auto; }
 .realisation a{ display: block; width: 100%; height: 100%; color: #fff; text-decoration: none; }
 .realisation img{ width: 100%; height: 100%; object-fit: cover; filter: brightness(90%); transition: .35s ease; }
@@ -167,8 +175,8 @@ p{ font-size: 1rem; line-height: 1.6; }
 .realisation:hover img{ filter: brightness(50%); }
 .realisation:hover h3{ opacity: 1; }
 
-/* 11) Footer (style CV appliqué partout) */
-.footer {
+/* 12) Footer (style CV appliqué partout) */
+.footer{
   width: 100%;
   background: #000;
   color: #fff;
@@ -176,40 +184,28 @@ p{ font-size: 1rem; line-height: 1.6; }
   padding: 30px 10px;
   margin-top: 40px;
 }
-.contacts-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+.contacts-container{
+  display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
 }
-.contact {
+.contact{
   background: rgba(255,255,255,0.1);
   border-radius: 10px;
   padding: 15px 20px;
   min-width: 160px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  display: flex; align-items: center; gap: 8px;
 }
-.contact .icon {
-  font-size: 24px;
-  color: #fff;
-}
-.contact .value,
-.contact .value a {
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-}
-.contact .value a:hover {
-  text-decoration: underline;
-}
+.contact .icon{ font-size: 24px; color: #fff; }
+.contact .value, .contact .value a{ color: #fff; font-weight: 600; text-decoration: none; }
+.contact .value a:hover{ text-decoration: underline; }
 
-/* 12) Accessibilité & motion */
+/* 13) Accessibilité & motion */
 a:focus-visible, button:focus-visible{ outline: 3px solid #9A00FF; outline-offset: 3px; }
-@media (prefers-reduced-motion: reduce){ *,*::before,*::after{ animation: none !important; transition: none !important; } }
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation: none !important; transition: none !important; }
+  .hero__shine{ opacity: 0 !important; }
+}
 
-/* 13) Responsif */
+/* 14) Responsive */
 @media (max-width: 1200px){ .boxed{ max-width: 92%; } }
 @media (max-width: 992px){
   .flex{ flex-direction: column; }
@@ -221,20 +217,12 @@ a:focus-visible, button:focus-visible{ outline: 3px solid #9A00FF; outline-offse
 @media (max-width: 768px){
   .slider{ min-height: 60vh; }
   .slider-content{ align-items: center; text-align: center; }
-  .profile-pic{ display: none; }
+  /* Photo VISIBLE en mobile */
+  .profile-pic{ display: block !important; width: 96px; height: 96px; margin-bottom: 10px; }
   #hero-title{ font-size: 1.6rem; }
   .skills-container{ flex-direction: column; align-items: center; }
   .realisation{ width: 100%; }
 }
 @media (max-width: 480px){
   .contact{ width: 100%; max-width: 300px; margin: 0 auto; }
-}
-
-@media (max-width: 992px){
-  #hero-title{ font-size: 1.9rem; }
-  .slider-content .jesuisdev{ font-size: 1.1rem; }
-}
-@media (max-width: 768px){
-  #hero-title{ font-size: 1.6rem; }
-  .slider-content .jesuisdev{ font-size: 1rem; }
 }

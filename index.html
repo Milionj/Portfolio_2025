@@ -22,10 +22,19 @@
   <main class="main-content">
     <section class="slider" aria-labelledby="hero-title">
       <img src="img/iot-7850195_1920.jpg" class="slider-background" alt="" aria-hidden="true" loading="lazy" />
+      <!-- Calque "shine" animé -->
+      <span class="hero__shine" aria-hidden="true"></span>
+
       <div class="slider-content">
-        <img src="img/1279 (2).png" alt="Photo de Serge Weber" class="profile-pic" loading="lazy" />
-        <h1 id="hero-title">Serge WEBER</h1>
-        <p class="jesuisdev"><strong>Développeur web & web mobile</strong></p>
+        <img src="img/1279 (2).png" alt="Photo de Serge Weber" class="profile-pic reveal" loading="lazy" />
+        <h1 id="hero-title" class="reveal">Serge WEBER</h1>
+        <p class="jesuisdev reveal"><strong>Développeur web & web mobile</strong></p>
+
+        <!-- Bouton animé vers le CV -->
+        <a href="cv.html" class="btn-cv reveal" aria-label="Voir mon CV">
+          <span class="btn-cv__glow" aria-hidden="true"></span>
+          <span class="btn-cv__label">Mon CV</span>
+        </a>
       </div>
     </section>
 
@@ -37,8 +46,8 @@
           </div>
           <div class="w60">
             <p>Je suis <strong>Serge Weber</strong>, développeur web passionné (HTML, CSS, JavaScript, React, Symfony).</p>
-            <p>Ancien militaire, j’applique rigueur et discipline pour créer des sites modernes et performants.</p>
-            <p>Mon objectif : concevoir des expériences web uniques et efficaces.</p>
+            <p>Ancien militaire, j’applique rigueur et discipline pour créer des sites & applications modernes et performants.</p>
+            <p>Mon objectif : concevoir des expériences web, web mobile uniques et efficaces.</p>
             <p>Besoin d’un site moderne ? <a href="cv.html"><strong>Contactez-moi</strong></a>.</p>
           </div>
         </div>
@@ -131,29 +140,29 @@
     </section>
   </main>
 
-<footer class="footer" aria-label="Pied de page">
-  <div class="contacts-container">
-    <div class="contact">
-      <span class="material-icons icon" aria-hidden="true">mail</span>
-      <a class="value" href="mailto:sergeweb52@gmail.com">sergeweb52@gmail.com</a>
+  <footer class="footer" aria-label="Pied de page">
+    <div class="contacts-container">
+      <div class="contact">
+        <span class="material-icons icon" aria-hidden="true">mail</span>
+        <a class="value" href="mailto:sergeweb52@gmail.com">sergeweb52@gmail.com</a>
+      </div>
+      <div class="contact">
+        <span class="material-icons icon" aria-hidden="true">call</span>
+        <a class="value" href="tel:+33612167308">06&nbsp;12&nbsp;16&nbsp;73&nbsp;08</a>
+      </div>
+      <div class="contact">
+        <span class="material-icons icon" aria-hidden="true">share</span>
+        <a class="value" href="https://github.com/Milionj" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <div class="contact">
+        <span class="material-icons icon" aria-hidden="true">share</span>
+        <a class="value" href="https://www.linkedin.com/in/serge-weber-b414b3232" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
     </div>
-    <div class="contact">
-      <span class="material-icons icon" aria-hidden="true">call</span>
-      <a class="value" href="tel:+33612167308">06&nbsp;12&nbsp;16&nbsp;73&nbsp;08</a>
-    </div>
-    <div class="contact">
-      <span class="material-icons icon" aria-hidden="true">share</span>
-      <a class="value" href="https://github.com/Milionj" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </div>
-    <div class="contact">
-      <span class="material-icons icon" aria-hidden="true">share</span>
-      <a class="value" href="https://www.linkedin.com/in/serge-weber-b414b3232" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-
-
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
   <script src="script.js" defer></script>
 </body>
 </html>
