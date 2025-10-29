@@ -38,21 +38,30 @@
       </div>
     </section>
 
-    <section class="section hidden" aria-labelledby="about-title">
-      <div class="boxed">
-        <div class="flex">
-          <div class="w40">
-            <h2 id="about-title">À propos de moi</h2>
-          </div>
-          <div class="w60">
-            <p>Je suis <strong>Serge Weber</strong>, développeur web passionné (HTML, CSS, JavaScript, React, Symfony).</p>
-            <p>Ancien militaire, j’applique rigueur et discipline pour créer des sites & applications modernes et performants.</p>
-            <p>Mon objectif : concevoir des expériences web, web mobile uniques et efficaces.</p>
-            <p>Besoin d’un site moderne ? <a href="cv.html"><strong>Contactez-moi</strong></a>.</p>
-          </div>
-        </div>
+    <!-- Section À propos de moi  -->
+<section class="section about-me hidden" aria-labelledby="about-title">
+  <div class="about-container">
+    <img src="img/eye.webp" alt="Photo de profil" class="eye" loading="lazy" />
+    <div class="about-text-box">
+      <div class="about-text">
+        <h2 id="about-title">À propos de moi</h2>
+        <p>
+          Je suis <strong>Serge Weber</strong>, développeur web & web mobile passionné par la création d’expériences interactives et modernes.
+          J’aime concevoir des interfaces fluides, intuitives et élégantes, tout en respectant les bonnes pratiques de développement.
+        </p>
+        <p>
+          Mon parcours, marqué par la rigueur de l’armée et la créativité du web, m’a appris à allier discipline, innovation et efficacité.
+          J’aime relever de nouveaux défis, apprendre, et partager mes connaissances.
+        </p>
+        <p>
+          Mon objectif est simple : concevoir des sites et applications performants qui offrent une vraie valeur à leurs utilisateurs.
+        </p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+
 
     <section class="section dark hidden" aria-labelledby="skills-title">
       <div class="boxed text-center">
@@ -106,6 +115,39 @@
               <div class="progress" data-percent="65"></div>
             </div>
           </article>
+
+          <article class="skill" role="listitem">
+  <img src="img/icons8-react-native-64.png" alt="Logo React Native" loading="lazy" />
+  <h3>React Native</h3>
+  <div class="progress-bar" aria-label="Niveau React Native 70%">
+    <div class="progress" data-percent="70"></div>
+  </div>
+</article>
+
+<article class="skill" role="listitem">
+  <img src="img/icons8-nodejs-48.png" alt="Logo Node.js" loading="lazy" />
+  <h3>Node.js</h3>
+  <div class="progress-bar" aria-label="Niveau Node.js 75%">
+    <div class="progress" data-percent="75"></div>
+  </div>
+</article>
+
+<article class="skill" role="listitem">
+  <img src="img/sql.png" alt="Logo SQL" loading="lazy" />
+  <h3>SQL</h3>
+  <div class="progress-bar" aria-label="Niveau SQL 80%">
+    <div class="progress" data-percent="80"></div>
+  </div>
+</article>
+
+<article class="skill" role="listitem">
+  <img src="img/icons8-agile-50.png" alt="Logo SQL" loading="lazy" />
+  <h3>Méthode agile</h3>
+  <div class="progress-bar" aria-label="Niveau SQL 80%">
+    <div class="progress" data-percent="80"></div>
+  </div>
+</article>
+
         </div>
       </div>
     </section>
@@ -139,6 +181,27 @@
       </div>
     </section>
   </main>
+
+      <!-- Section Bulletin de notes -->
+    <section class="section hidden" aria-labelledby="grades-title">
+      <div class="boxed text-center">
+        <h2 id="grades-title">Mon bulletin de notes</h2>
+
+        <div class="cv-wrapper">
+          <iframe
+            id="grades-embed"
+            src="/img/BULLETIN DE NOTES DE LA FORMATION DU.pdf"
+            title="Bulletin de notes de Serge Weber"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <a href="/img/BULLETIN DE NOTES DE LA FORMATION DU.pd" download class="btn-download">
+          Télécharger le bulletin
+        </a>
+      </div>
+    </section>
+
 
   <footer class="footer" aria-label="Pied de page">
     <div class="contacts-container">
