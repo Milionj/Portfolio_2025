@@ -183,29 +183,59 @@
   </main>
 
       <!-- Section Bulletin de notes -->
-    <section class="section hidden" aria-labelledby="grades-title">
-      <div class="boxed text-center">
-        <h2 id="grades-title">Mon bulletin de notes</h2>
+<section class="section hidden" aria-labelledby="grades-title">
+  <div class="boxed text-center">
+    <h2 id="grades-title">Mon bulletin de notes</h2>
 
-        <div class="cv-wrapper">
-          <iframe
-            id="grades-embed"
-            src="/img/BULLETIN DE NOTES DE LA FORMATION DU.pdf"
-            title="Bulletin de notes de Serge Weber"
-            loading="lazy"
-          ></iframe>
-        </div>
+    <!-- Résumé complet des notes -->
+    <div class="grades-summary">
+      <h3>Mes résultats de formation 2025</h3>
+      <ul>
+        <li><strong>HTML / CSS :</strong> 18 / 20</li>
+        <li><strong>Examen Algorithmes</strong> 20/ 20</li>
+        <li><strong>JavaScript :</strong> 17 / 20</li>
+        <li><strong>React.js :</strong> 16 / 20</li>
+        <li><strong>React Native :</strong> 12,5 / 20</li>
+        <li><strong>Node.js / Express :</strong> 16 / 20</li>
+        <li><strong>Symfony (PHP) :</strong> 14,2 / 20</li>
+        <li><strong>MySQL / SQL :</strong> 17 / 20</li>
+        <li><strong>Firebase / NoSQL :</strong> 16 / 20</li>
+        <li><strong>Docker & Déploiement :</strong> 17,5 / 20</li>
+        <li><strong>API REST / Sécurité :</strong> 19,6 / 20</li>
+        <li><strong>Gestion de projet Agile :</strong> 18 / 20</li>
+        <li><strong>Communication professionnelle :</strong> 17 / 20</li>
+        <li><strong>Projet final InkMaster :</strong> 16,5 / 20</li>
+      </ul>
+      <p class="appreciation">
+        Appréciation générale :
+        <em><strong> Bon niveau technique, très bonne autonomie et rigueur. Projet final particulièrement réussi.</strong></em>
+      </p>
+    </div>
 
-        <a href="/img/BULLETIN DE NOTES DE LA FORMATION DU.pd" download class="btn-download">
-          Télécharger le bulletin
-        </a>
-                <a href="cv.html" class="btn-cv reveal" aria-label="Voir mon CV">
-          <span class="btn-cv__glow" aria-hidden="true"></span>
-          <span class="btn-cv__label">Mon CV</span>
-        </a>
-      </div>
-      
-    </section>
+    <!-- Boutons conservés -->
+    <div class="cv-wrapper">
+      <a href="/img/BULLETIN DE NOTES DE LA FORMATION DU.pdf"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn-download">
+        Voir le bulletin complet
+      </a>
+    </div>
+
+    <a href="/img/BULLETIN DE NOTES DE LA FORMATION DU.pdf"
+       download
+       class="btn-download">
+       Télécharger le bulletin
+    </a>
+
+    <a href="cv.html" class="btn-cv reveal" aria-label="Voir mon CV">
+      <span class="btn-cv__glow" aria-hidden="true"></span>
+      <span class="btn-cv__label">Mon CV</span>
+    </a>
+  </div>
+</section>
+
+
 
 
   <footer class="footer" aria-label="Pied de page">
