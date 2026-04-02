@@ -380,6 +380,29 @@ p  { font-size: 1rem; line-height: 1.6; }
   filter: brightness(45%);
 }
 
+.realisation-boxing {
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.12), transparent 40%),
+    linear-gradient(135deg, #10141f, #05070b);
+}
+
+.realisation-boxing .realisation-boxing-logo {
+  object-fit: contain;
+  object-position: center 35%;
+  padding: 1.25rem 4rem 4.5rem;
+  filter: none;
+  transform: scale(0.82);
+}
+
+.realisation-boxing:hover .realisation-boxing-logo {
+  filter: none;
+  transform: scale(0.88);
+}
+
+.realisation-inkmaster .realisation-inkmaster-image {
+  object-position: center top;
+}
+
 /* Titre bien visible */
 .realisation h3 {
   position: absolute;
@@ -420,6 +443,10 @@ p  { font-size: 1rem; line-height: 1.6; }
 
   .realisation img {
     filter: brightness(80%);          /* image plus claire pour le texte */
+  }
+
+  .realisation-boxing .realisation-boxing-logo {
+    padding: 1rem 2rem 4rem;
   }
 
   .realisation:hover h3 {

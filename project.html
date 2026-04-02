@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Descriptif detaille d'un projet du portfolio de Serge Weber." />
+  <link rel="stylesheet" href="project.css" />
+  <title>Projet - Serge Weber</title>
+</head>
+<body>
+  <header class="project-topbar">
+    <a class="topbar-brand" href="index.html">Serge Weber</a>
+    <nav class="topbar-nav" aria-label="Navigation secondaire">
+      <a href="index.html#work-title">Portfolio</a>
+      <a href="cv.html">Mon CV</a>
+    </nav>
+  </header>
+
+  <main class="project-page">
+    <p class="project-breadcrumb">
+      <a href="index.html#work-title">Mes realisations</a>
+      <span>/</span>
+      <span id="project-breadcrumb-current">Projet</span>
+    </p>
+
+    <section class="project-hero" aria-labelledby="project-title">
+      <div class="project-visual" id="project-visual">
+        <span class="project-visual__badge" id="project-badge">Projet</span>
+        <img id="project-image" src="img/web-2592005_1280.jpg" alt="" loading="lazy" />
+      </div>
+
+      <div class="project-copy">
+        <p class="project-kicker" id="project-kicker">Fiche projet</p>
+        <h1 id="project-title">Chargement du projet...</h1>
+        <p class="project-intro" id="project-intro">
+          Cette page presente le projet, son but et les points que je souhaitais mettre en avant avant l'ouverture du site.
+        </p>
+
+        <div class="project-tags" id="project-tags" aria-label="Informations projet"></div>
+
+        <div class="project-actions">
+          <a
+            class="project-btn project-btn--primary"
+            id="project-site-link"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            VOIR LE SITE
+          </a>
+          <a class="project-btn project-btn--secondary" href="index.html#work-title">Retour aux projets</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-grid" aria-label="Details du projet">
+      <article class="project-panel">
+        <h2>Descriptif</h2>
+        <p id="project-description"></p>
+      </article>
+
+      <article class="project-panel">
+        <h2>But du projet</h2>
+        <p id="project-goal"></p>
+      </article>
+
+      <article class="project-panel">
+        <h2>Points cles</h2>
+        <ul class="project-list" id="project-highlights"></ul>
+      </article>
+
+      <article class="project-panel">
+        <h2>Ce que ce projet met en avant</h2>
+        <ul class="project-list" id="project-focus"></ul>
+      </article>
+    </section>
+  </main>
+
+  <noscript>
+    <div class="project-noscript">Activez JavaScript pour charger correctement la fiche projet.</div>
+  </noscript>
+
+  <script src="project.js" defer></script>
+</body>
+</html>
