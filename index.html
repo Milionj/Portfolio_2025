@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ceci est mon portfolio de développeur web." />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Portfolio — Serge Weber</title>
+</head>
+<body>
+  <nav class="navbar" aria-label="Navigation principale">
+    <ul class="nav-links">
+      <li><a href="cv.html">Mon CV</a></li>
+    </ul>
+  </nav>
+
+  <div id="loader" aria-hidden="true">
+    <div class="spinner" aria-label="Chargement…"></div>
+  </div>
+
+  <main class="main-content">
+    <section class="slider" aria-labelledby="hero-title">
+      <img src="img/iot-7850195_1920.jpg" class="slider-background" alt="" aria-hidden="true" loading="lazy" />
+      <!-- Calque "shine" animé -->
+      <span class="hero__shine" aria-hidden="true"></span>
+
+      <div class="slider-content">
+        <img src="img/1279 (2).png" alt="Photo de Serge Weber" class="profile-pic reveal" loading="lazy" />
+        <h1 id="hero-title" class="reveal">Serge WEBER</h1>
+        <p class="jesuisdev reveal"><strong>Développeur web & web mobile</strong></p>
+
+        <!-- Bouton animé vers le CV -->
+        <a href="cv.html" class="btn-cv reveal" aria-label="Voir mon CV">
+          <span class="btn-cv__glow" aria-hidden="true"></span>
+          <span class="btn-cv__label">Mon CV</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Section À propos de moi  -->
+<section class="section about-me hidden" aria-labelledby="about-title">
+  <div class="about-container">
+    <img src="img/eye.webp" alt="Photo de profil" class="eye" loading="lazy" />
+    <div class="about-text-box">
+      <div class="about-text">
+        <h2 id="about-title">À propos de moi</h2>
+        <p>
+          Je suis <strong>Serge Weber</strong>, développeur web & web mobile passionné par la création d’expériences interactives et modernes.
+          J’aime concevoir des interfaces fluides, intuitives et élégantes, tout en respectant les bonnes pratiques de développement.
+        </p>
+        <p>
+          Mon parcours, marqué par la rigueur de l’armée et la créativité du web, m’a appris à allier discipline, innovation et efficacité.
+          J’aime relever de nouveaux défis, apprendre, et partager mes connaissances.
+        </p>
+        <p>
+          Mon objectif est simple : concevoir des sites et applications performants qui offrent une vraie valeur à leurs utilisateurs.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <section class="section dark hidden" aria-labelledby="skills-title">
+      <div class="boxed text-center">
+        <h2 id="skills-title">Mes compétences</h2>
+
+        <div class="skills-container" role="list">
+          <article class="skill" role="listitem">
+            <img src="img/logoHtml.webp" alt="Logo HTML" loading="lazy" />
+            <h3>HTML</h3>
+            <div class="progress-bar" aria-label="Niveau HTML 90%">
+              <div class="progress" data-percent="90"></div>
+            </div>
+          </article>
+
+          <article class="skill" role="listitem">
+            <img src="img/logo-CSS.webp" alt="Logo CSS" loading="lazy" />
+            <h3>CSS</h3>
+            <div class="progress-bar" aria-label="Niveau CSS 85%">
+              <div class="progress" data-percent="85"></div>
+            </div>
+          </article>
+
+          <article class="skill" role="listitem">
+            <img src="img/logo-js.jpg" alt="Logo JavaScript" loading="lazy" />
+            <h3>JavaScript</h3>
+            <div class="progress-bar" aria-label="Niveau JavaScript 80%">
+              <div class="progress" data-percent="80"></div>
+            </div>
+          </article>
+
+          <article class="skill" role="listitem">
+            <img src="img/iconeRact.png" alt="Logo React" loading="lazy" />
+            <h3>React</h3>
+            <div class="progress-bar" aria-label="Niveau React 75%">
+              <div class="progress" data-percent="75"></div>
+            </div>
+          </article>
+
+          <article class="skill" role="listitem">
+            <img src="img/docker.png" alt="Logo Docker" loading="lazy" />
+            <h3>Docker</h3>
+            <div class="progress-bar" aria-label="Niveau Docker 70%">
+              <div class="progress" data-percent="70"></div>
+            </div>
+          </article>
+
+          <article class="skill" role="listitem">
+            <img src="img/icons8-symfony-480.png" alt="Logo Symfony" loading="lazy" />
+            <h3>Symfony</h3>
+            <div class="progress-bar" aria-label="Niveau Symfony 65%">
+              <div class="progress" data-percent="65"></div>
+            </div>
+          </article>
+
+          <article class="skill" role="listitem">
+  <img src="img/icons8-react-native-64.png" alt="Logo React Native" loading="lazy" />
+  <h3>React Native</h3>
+  <div class="progress-bar" aria-label="Niveau React Native 70%">
+    <div class="progress" data-percent="70"></div>
+  </div>
+</article>
+
+<article class="skill" role="listitem">
+  <img src="img/icons8-nodejs-48.png" alt="Logo Node.js" loading="lazy" />
+  <h3>Node.js</h3>
+  <div class="progress-bar" aria-label="Niveau Node.js 75%">
+    <div class="progress" data-percent="75"></div>
+  </div>
+</article>
+
+<article class="skill" role="listitem">
+  <img src="img/sql.png" alt="Logo SQL" loading="lazy" />
+  <h3>SQL</h3>
+  <div class="progress-bar" aria-label="Niveau SQL 80%">
+    <div class="progress" data-percent="80"></div>
+  </div>
+</article>
+
+<article class="skill" role="listitem">
+  <img src="img/icons8-agile-50.png" alt="Logo SQL" loading="lazy" />
+  <h3>Méthode agile</h3>
+  <div class="progress-bar" aria-label="Niveau SQL 80%">
+    <div class="progress" data-percent="80"></div>
+  </div>
+</article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section hidden" aria-labelledby="work-title">
+      <div class="boxed text-center">
+        <h2 id="work-title">Mes réalisations</h2>
+
+        <div class="flex wrap gap20 space-between skills-container">
+          <article class="w32 realisation">
+            <a href="https://inkmaster.netlify.app/" target="_blank" rel="noopener noreferrer">
+              <img src="Pexels Photo by Anna Shvets(1).png" alt="salon de tatouage" loading="lazy" />
+              <h3>Site pour salon de tatouage</h3>
+            </a>
+          </article>
+
+          <article class="w32 realisation">
+            <a href="https://strong-llama-9db536.netlify.app/" target="_blank" rel="noopener noreferrer">
+              <img src="img/boy-5699320_1920.jpg" alt="Site de jeux vidéo" loading="lazy" />
+              <h3>Site de jeux vidéo</h3>
+            </a>
+          </article>
+
+          <article class="w32 realisation">
+            <a href="https://montre-de-luxe-ys.netlify.app/" target="_blank" rel="noopener noreferrer">
+              <img src="img/rolex-watches444.gif" alt="Site e-commerce JavaScript" loading="lazy" />
+              <h3>Site e-commerce JS</h3>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+      <!-- Section Bulletin de notes -->
+<section class="section hidden" aria-labelledby="grades-title">
+  <div class="boxed text-center">
+    <h2 id="grades-title">Mon bulletin de notes</h2>
+
+    <!-- Résumé complet des notes -->
+    <div class="grades-summary">
+      <h3>Mes résultats de formation 2025</h3>
+      <ul>
+        <li><strong>HTML / CSS :</strong> 18 / 20</li>
+        <li><strong>Examen Algorithmes</strong> 20/ 20</li>
+        <li><strong>JavaScript :</strong> 17 / 20</li>
+        <li><strong>React.js :</strong> 16 / 20</li>
+        <li><strong>React Native :</strong> 12,5 / 20</li>
+        <li><strong>Node.js / Express :</strong> 16 / 20</li>
+        <li><strong>Symfony (PHP) :</strong> 14,2 / 20</li>
+        <li><strong>MySQL / SQL :</strong> 17 / 20</li>
+        <li><strong>Firebase / NoSQL :</strong> 16 / 20</li>
+        <li><strong>Docker & Déploiement :</strong> 17,5 / 20</li>
+        <li><strong>API REST / Sécurité :</strong> 19,6 / 20</li>
+        <li><strong>Gestion de projet Agile :</strong> 18 / 20</li>
+        <li><strong>Communication professionnelle :</strong> 17 / 20</li>
+        <li><strong>Projet final InkMaster :</strong> 16,5 / 20</li>
+      </ul>
+      <p class="appreciation">
+        Appréciation générale :
+        <em><strong> Bon niveau technique, très bonne autonomie et rigueur. Projet final particulièrement réussi.</strong></em>
+      </p>
+    </div>
+
+    <!-- Boutons conservés -->
+    <div class="cv-wrapper">
+      <a href="/img/BULLETIN DE NOTES DE LA FORMATION DU.pdf"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn-download">
+        Voir le bulletin complet
+      </a>
+    </div>
+
+    <a href="/img/BULLETIN DE NOTES DE LA FORMATION DU.pdf"
+       download
+       class="btn-download">
+       Télécharger le bulletin
+    </a>
+
+    <a href="cv.html" class="btn-cv reveal" aria-label="Voir mon CV">
+      <span class="btn-cv__glow" aria-hidden="true"></span>
+      <span class="btn-cv__label">Mon CV</span>
+    </a>
+  </div>
+</section>
+
+
+
+
+  <footer class="footer" aria-label="Pied de page">
+    <div class="contacts-container">
+      <div class="contact">
+        <span class="material-icons icon" aria-hidden="true">mail</span>
+        <a class="value" href="mailto:sergeweb52@gmail.com">sergeweb52@gmail.com</a>
+      </div>
+      <div class="contact">
+        <span class="material-icons icon" aria-hidden="true">call</span>
+        <a class="value" href="tel:+33612167308">06&nbsp;12&nbsp;16&nbsp;73&nbsp;08</a>
+      </div>
+      <div class="contact">
+        <span class="material-icons icon" aria-hidden="true">share</span>
+        <a class="value" href="https://github.com/Milionj" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <div class="contact">
+        <span class="material-icons icon" aria-hidden="true">share</span>
+        <a class="value" href="https://www.linkedin.com/in/serge-weber-b414b3232" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="script.js" defer></script>
+    <button id="scrollTopBtn" aria-label="Retour en haut">
+  <span class="material-icons">arrow_upward</span>
+</button>
+</body>
+</html>

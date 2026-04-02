@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Mon CV de développeur web et web mobile" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="cv.css" />
+  <title>Mon CV — Serge Weber</title>
+</head>
+<body>
+  <nav class="navbar" aria-label="Navigation principale">
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="cv.html" class="active" aria-current="page">Mon CV</a></li>
+    </ul>
+  </nav>
+
+  <header class="cv-header">
+    <h1>Mon CV</h1>
+    <a href="index.html" class="btn-retour" aria-label="Retour à l'accueil">← Retour à l’accueil</a>
+  </header>
+
+<main class="cv-container">
+  <object
+    id="cv-embed"
+    data="img/CV ISCOD fullstack.pdf"
+    type="application/pdf"
+    aria-label="CV PDF"
+    tabindex="0"
+    style="width:100%;max-width:1000px;height:70vh;border:none;border-radius:10px;background:#fff;"
+  >
+    <div id="fallback">
+      <p>Le CV ne peut pas être affiché dans votre navigateur.</p>
+      <a href="img/CV ISCOD fullstack.pdf" download>Télécharger le CV en PDF</a>
+    </div>
+  </object>
+</main>
+
+
+
+<footer class="footer" aria-label="Pied de page">
+  <div class="contacts-container">
+    <div class="contact">
+      <span class="material-icons icon">mail</span>
+      <a class="value" href="mailto:sergeweb52@gmail.com">sergeweb52@gmail.com</a>
+    </div>
+    <div class="contact">
+      <span class="material-icons icon">call</span>
+      <a class="value" href="tel:+33612167308">06 12 16 73 08</a>
+    </div>
+    <div class="contact">
+      <span class="material-icons icon">share</span>
+      <a class="value" href="https://github.com/Milionj" target="_blank">GitHub</a>
+    </div>
+    <div class="contact">
+      <span class="material-icons icon">share</span>
+      <a class="value" href="https://www.linkedin.com/in/serge-weber-b414b3232" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+  <script src="cv.js" defer></script>
+  
+</body>
+</html>
