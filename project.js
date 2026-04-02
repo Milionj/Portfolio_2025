@@ -20,9 +20,16 @@ const projects = {
       "Une architecture full-stack plus robuste, securisee et conforme aux attentes d'un projet complet."
     ],
     tags: ["React", "Node.js", "Full-stack", "Securite"],
-    image: "img/inkmaster-preview.png",
+    noticeLabel: "Important",
+    noticeText:
+      "La version en ligne visible ici est surtout une vitrine front. La vraie application InkMaster, en React + Node.js avec backend complet, tourne en local pour eviter les couts d'hebergement plus eleves.",
+    heroLayout: "stacked",
+    stackedAspectRatio: "16 / 10",
+    stackedAspectRatioTablet: "16 / 11",
+    image: "img/inkmaster-preview-cropped.png",
     imageAlt: "Capture du projet InkMaster",
     imageFit: "cover",
+    imagePosition: "center center",
     siteUrl: "https://inkmaster.netlify.app/",
     accent: "#ff7a59",
     accentStrong: "#ff4d2d",
@@ -50,9 +57,16 @@ const projects = {
       "La mise en avant d'un projet complet, structure, securise et conforme avant l'ouverture du site."
     ],
     tags: ["PHP natif", "Backend", "Projet complet", "Securite"],
-    image: "img/boxing-social-full-logo.png",
-    imageAlt: "Logo du projet BoxingSocial",
-    imageFit: "contain",
+    noticeLabel: "Important",
+    noticeText:
+      "La version publique affiche avant tout une vitrine front. La vraie application BoxingSocial, developpee en PHP natif avec son backend et sa logique complete, reste en local a cause du prix des hebergeurs.",
+    heroLayout: "stacked",
+    stackedAspectRatio: "5 / 2",
+    stackedAspectRatioTablet: "16 / 10",
+    image: "img/boxing-social-preview-cropped.png",
+    imageAlt: "Capture du projet BoxingSocial",
+    imageFit: "cover",
+    imagePosition: "center top",
     siteUrl: "https://boxing-social.netlify.app/",
     accent: "#f24b2d",
     accentStrong: "#c61f06",
@@ -80,9 +94,15 @@ const projects = {
       "Un positionnement plus premium dans le rendu du site."
     ],
     tags: ["Projet personnel", "JavaScript", "E-commerce"],
+    noticeLabel: "",
+    noticeText: "",
+    heroLayout: "split",
+    stackedAspectRatio: "5 / 2",
+    stackedAspectRatioTablet: "16 / 10",
     image: "img/rolex-watches444.gif",
     imageAlt: "Apercu du site e-commerce de montres de luxe",
     imageFit: "cover",
+    imagePosition: "center",
     siteUrl: "https://montre-de-luxe-ys.netlify.app/",
     accent: "#c8a24d",
     accentStrong: "#9f7410",
@@ -112,9 +132,15 @@ const fallbackProject = {
     "Un fallback simple et lisible."
   ],
   tags: ["Portfolio", "Navigation"],
+  noticeLabel: "",
+  noticeText: "",
+  heroLayout: "split",
+  stackedAspectRatio: "5 / 2",
+  stackedAspectRatioTablet: "16 / 10",
   image: "img/web-2592005_1280.jpg",
   imageAlt: "Illustration generique du portfolio",
   imageFit: "cover",
+  imagePosition: "center",
   siteUrl: "index.html#work-title",
   accent: "#37b5ff",
   accentStrong: "#0a7fff",
@@ -152,6 +178,11 @@ document.addEventListener("DOMContentLoaded", () => {
   document.documentElement.style.setProperty("--project-accent-strong", project.accentStrong);
   document.documentElement.style.setProperty("--project-accent-shadow", project.accentShadow);
   document.documentElement.style.setProperty("--project-glow", project.glow);
+  document.documentElement.style.setProperty("--project-stacked-aspect", project.stackedAspectRatio || "5 / 2");
+  document.documentElement.style.setProperty(
+    "--project-stacked-aspect-tablet",
+    project.stackedAspectRatioTablet || "16 / 10"
+  );
 
   const title = document.getElementById("project-title");
   const badge = document.getElementById("project-badge");
@@ -161,6 +192,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const goal = document.getElementById("project-goal");
   const image = document.getElementById("project-image");
   const visual = document.getElementById("project-visual");
+  const hero = document.querySelector(".project-hero");
+  const notice = document.getElementById("project-notice");
+  const noticeLabel = document.getElementById("project-notice-label");
+  const noticeText = document.getElementById("project-notice-text");
   const breadcrumb = document.getElementById("project-breadcrumb-current");
   const siteLink = document.getElementById("project-site-link");
   const highlights = document.getElementById("project-highlights");
@@ -177,7 +212,12 @@ document.addEventListener("DOMContentLoaded", () => {
   breadcrumb.textContent = project.title;
   image.src = project.image;
   image.alt = project.imageAlt;
+  image.style.objectPosition = project.imagePosition || "center";
+  notice.hidden = !project.noticeText;
+  noticeLabel.textContent = project.noticeLabel || "Note";
+  noticeText.textContent = project.noticeText || "";
 
+  hero.classList.toggle("project-hero--stacked", project.heroLayout === "stacked");
   visual.classList.toggle("is-contain", project.imageFit === "contain");
 
   fillList(highlights, project.highlights);
